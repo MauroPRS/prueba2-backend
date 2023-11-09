@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >Listado de Salas</div>
+    
+    {%if salas %}
+
+    <table>
+        <tr>
+            <th>Canitdad Silla</th>
+            <th>Numero de Sala</th>
+            <th>Tamaño Pantalla</th>
+            <th>Sala Inclusiva</th>
+            <th>Tipo de Sala</th>
+            <th>Estado de Sala</th>
+            <th>--</th>
+        </tr>
+        <thead>
+        <tbody> 
+            {% for sala in salas %}
+            <tr>
+                    <td>{{ sala.CantidadSilla }}</td>
+                    <td>{{ sala.NumeroSala}}</td>
+                    <td>{{ sala.TamanioPantalla }}</td>
+                    <td>{{ sala.InclusividadSala }}</td>
+                    <td>{{ sala.TipoSala }}</td>
+                    <td>{{ sala.EstadoSala }}</td>
+                    <td><a href="/actualizar/{{sala.id}}">Actualizar</td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <h1>No se encontraron salas registradas</h1>
+    {% endif %}
+</body>
+</html>
